@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Dia dos Namorados, Diana!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden; /* Previne a rolagem horizontal */
+        }
+        .font-dancing {
+            font-family: 'Dancing Script', cursive;
+        }
+        .text-glow {
+            text-shadow: 0 0 8px rgba(251, 191, 36, 0.7), 0 0 20px rgba(251, 191, 36, 0.5);
+        }
+        
+        /* --- CSS Corrigido para o Vídeo de Fundo --- */
+        #video-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover; /* Garante que o vídeo cubra todo o espaço sem distorcer */
+        }
+
+        .polaroid {
+            background-color: black;
+            padding: 1rem;
+            padding-bottom: 4rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .polaroid:hover {
+            transform: scale(1.1) rotate(0deg) !important; /* Remove a rotação no hover para focar */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        .polaroid figcaption {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
+            text-align: center;
+            color: white;
+        }
+        .polaroid img {
+            cursor: pointer;
+        }
+        #surprise-content {
+            transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+        }
+        #image-modal {
+            transition: opacity 0.3s ease-in-out;
+        }
+        #image-modal img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* --- Animação de Fade In --- */
+        @keyframes fade-in-down {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-down {
+            animation: fade-in-down 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-[#1e184a] text-white">
+
+    <!-- Caminho original do vídeo de fundo restaurado -->
+    <video autoplay muted loop id="video-bg">
+        <source src="backgraund/Criação_de_Vídeo_Animado_para_Background.mp4" type="video/mp4">
+    </video>
+
+    <div class="relative z-10 min-h-screen flex flex-col items-center justify-center text-center p-4 overflow-hidden">
+        <header class="animate-fade-in-down">
+            <h1 class="font-dancing text-5xl md:text-7xl text-amber-400 text-glow">Feliz Dia dos Namoradas, Minha Princesa!</h1>
+            <p class="text-xl md:text-2xl text-amber-200 mt-2">1 de Agosto - O nosso dia</p>
+        </header>
+        <!-- Largura máxima reduzida para manter o conteúdo mais centralizado no desktop -->
+        <section class="bg-black bg-opacity-25 backdrop-blur-md rounded-xl p-6 md:p-8 shadow-lg mt-8 w-full max-w-3xl mx-auto">
+            <p class="text-lg md:text-xl leading-relaxed text-center">
+                "Assim como José, eu passei muito tempo em um lugar distante, sem entender o que o destino estava preparando pra mim. Então, você apareceu. Com seu sorriso, seu jeito e seu coração, você me mostrou um novo caminho, cheio de cores, luz e sentido. Hoje, eu vejo tudo com clareza: o meu novo sonho é você."
+            </p>
+        </section>
+    </div>
+
+    <!-- Largura máxima do container principal reduzida -->
+    <main class="relative z-10 w-full max-w-4xl mx-auto px-6 pb-20 space-y-24 md:space-y-32">
+
+        <section>
+            <h2 class="font-dancing text-4xl md:text-5xl text-center text-amber-400 text-glow mb-12">Nossas Melhores Aventuras</h2>
+            <!-- Grid de fotos ajustado para ter menos colunas em telas grandes -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-6 place-items-center">
+                
+                <!-- Caminhos originais das imagens restaurados -->
+                <figure class="polaroid relative aspect-[3/4] rotate-[-3deg] w-full max-w-xs">
+                    <img src="fotos/WhatsApp Image 2025-08-01 at 10.36.09.jpeg" alt="Memória 1" class="w-full h-full object-cover">
+                    <figcaption class="font-dancing text-lg">Onde tudo começou.</figcaption>
+                </figure>
+                <figure class="polaroid relative aspect-[3/4] rotate-[2deg] w-full max-w-xs">
+                    <img src="fotos/WhatsApp Image 2025-08-01 at 10.36.09 (1).jpeg" alt="Memória 2" class="w-full h-full object-cover">
+                    <figcaption class="font-dancing text-lg">Cada festa é melhor com você.</figcaption>
+                </figure>
+                <figure class="polaroid relative aspect-[3/4] rotate-[-5deg] w-full max-w-xs">
+                    <img src="fotos/WhatsApp Image 2025-08-01 at 10.36.09 (2).jpeg" alt="Memória 3" class="w-full h-full object-cover">
+                    <figcaption class="font-dancing text-lg">Meu par perfeito.</figcaption>
+                </figure>
+                <figure class="polaroid relative aspect-[3/4] rotate-[4deg] w-full max-w-xs">
+                    <img src="fotos/Captura de tela 2025-08-01 103850.png" alt="Memória 4" class="w-full h-full object-cover">
+                    <figcaption class="font-dancing text-lg">Nossos jantares...</figcaption>
+                </figure>
+                <figure class="polaroid relative aspect-[3/4] rotate-[-2deg] w-full max-w-xs sm:col-start-auto md:col-start-auto">
+                    <img src="fotos/Captura de tela 2025-08-01 103922.png" alt="Memória 5" class="w-full h-full object-cover">
+                    <figcaption class="font-dancing text-lg">Você ilumina a noite.</figcaption>
+                </figure>
+
+            </div>
+        </section>
+
+        <section id="surprise-section" class="text-center">
+            <button id="reveal-button" class="bg-amber-500 text-gray-900 font-bold py-3 px-8 rounded-full text-xl hover:bg-amber-400 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                Clique para uma surpresa
+            </button>
+            <div id="surprise-content" class="hidden opacity-0 transform scale-95">
+                <div class="aspect-w-16 aspect-h-9 max-w-3xl mx-auto rounded-lg overflow-hidden shadow-2xl bg-black">
+                     <!-- Caminho original do vídeo da surpresa restaurado -->
+                    <video controls autoplay muted class="w-full h-full object-cover">
+                        <source src="backgraund/Sylvia Salustti, Raphael Rossato - Vejo Enfim a Luz Brilhar (De Enrolados_Vídeo Oficial) - DisneyMusicBRVEVO (720p, h264).mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                </div>
+                <p class="mt-8 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                    "Estando ao seu lado, é fácil perceber que o meu lugar é aqui. Cada dia é uma nova aventura, cada momento é uma nova descoberta. Obrigado por ser a minha parceira, minha melhor amiga e o meu grande amor. Que a nossa luz continue brilhando para sempre. Com todo o meu amor, Vinicius."
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal para visualização da imagem -->
+    <div id="image-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 opacity-0">
+        <span id="close-modal" class="absolute top-4 right-6 text-white text-5xl font-bold cursor-pointer hover:text-amber-400 transition-colors">&times;</span>
+        <!-- Imagem do modal com tamanho responsivo melhorado -->
+        <img id="modal-image" src="" alt="Memória Ampliada" class="rounded-lg transform scale-95 max-w-[90vw] max-h-[85vh] object-contain">
+    </div>
+
+    <footer class="text-center py-12 px-4">
+        <div class="inline-block mb-4">
+            <!-- Caminho original do ícone restaurado -->
+            <img src="backgraund/Gemini_Generated_Image_mstqrxmstqrxmstq.png" class="h-12 w-12" alt="Ícone com as iniciais V & D">
+        </div>
+        <p class="text-amber-200">Feito com carinho, inspirado na nossa história.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- Lógica para revelar a surpresa ---
+            const revealButton = document.getElementById('reveal-button');
+            const surpriseContent = document.getElementById('surprise-content');
+            const surpriseSection = document.getElementById('surprise-section');
+            
+            revealButton.addEventListener('click', () => {
+                // Esconde o botão suavemente
+                revealButton.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+                revealButton.style.opacity = '0';
+                revealButton.style.transform = 'scale(0.8)';
+                
+                setTimeout(() => {
+                    revealButton.classList.add('hidden');
+                    
+                    // Mostra o conteúdo da surpresa
+                    surpriseContent.classList.remove('hidden');
+                    
+                    // Adiciona um pequeno delay para a transição de entrada funcionar
+                    setTimeout(() => {
+                        surpriseContent.classList.remove('opacity-0', 'scale-95');
+                        surpriseContent.classList.add('opacity-100', 'scale-100');
+                        
+                        // Rola a página para que a surpresa fique centralizada
+                        setTimeout(() => {
+                            surpriseSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 300); // Espera a animação de fade in terminar antes de rolar
+                    }, 50);
+                }, 300); // Espera a animação do botão terminar
+            });
+
+            // --- Lógica para o Modal de Imagem ---
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            const closeModal = document.getElementById('close-modal');
+            const polaroidImages = document.querySelectorAll('.polaroid img');
+
+            // Função para abrir o modal
+            const openModal = (imgSrc) => {
+                modalImage.src = imgSrc;
+                modal.classList.remove('hidden');
+                setTimeout(() => { // Delay para a transição de opacidade
+                    modal.classList.remove('opacity-0');
+                    modalImage.classList.remove('scale-95');
+                }, 10);
+            };
+
+            // Função para fechar o modal
+            const closeModalFunction = () => {
+                modalImage.classList.add('scale-95');
+                modal.classList.add('opacity-0');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modalImage.src = ''; // Limpa o src para evitar carregar imagem antiga
+                }, 300); // Tempo da transição de opacidade
+            };
+
+            // Adiciona o evento de clique para cada imagem polaroid
+            polaroidImages.forEach(img => {
+                img.addEventListener('click', () => {
+                    openModal(img.src);
+                });
+            });
+
+            // Eventos para fechar o modal
+            closeModal.addEventListener('click', closeModalFunction);
+            modal.addEventListener('click', (e) => {
+                // Fecha o modal se o clique for no fundo escuro (o próprio modal)
+                if (e.target === modal) {
+                    closeModalFunction();
+                }
+            });
+             // Evento para fechar o modal com a tecla 'Escape'
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModalFunction();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
