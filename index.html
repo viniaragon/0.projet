@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Dia das Namorados, Minha Princesa!</title>
+    <title>Feliz Dia dos Namorados, Diana!</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,7 +93,7 @@
     <div class="relative z-10 min-h-screen flex flex-col items-center justify-center text-center p-4 overflow-hidden">
         <header class="animate-fade-in-down">
             <h1 class="font-dancing text-5xl md:text-7xl text-amber-400 text-glow">Feliz Dia dos Namoradas, Minha Princesa!</h1>
-            <p class="text-xl md:text-2xl text-amber-200 mt-2">1 de Agosto - O dia das namoradas</p>
+            <p class="text-xl md:text-2xl text-amber-200 mt-2">1 de Agosto - O nosso dia</p>
         </header>
         <!-- Largura máxima reduzida para manter o conteúdo mais centralizado no desktop -->
         <section class="bg-black bg-opacity-25 backdrop-blur-md rounded-xl p-6 md:p-8 shadow-lg mt-8 w-full max-w-3xl mx-auto">
@@ -159,20 +159,50 @@
     <!-- Modal para visualização da imagem -->
     <div id="image-modal" class="hidden fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 opacity-0">
         <span id="close-modal" class="absolute top-4 right-6 text-white text-5xl font-bold cursor-pointer hover:text-amber-400 transition-colors">&times;</span>
-        <!-- Imagem do modal com tamanho responsivo melhorado -->
         <img id="modal-image" src="" alt="Memória Ampliada" class="rounded-lg transform scale-95 max-w-[90vw] max-h-[85vh] object-contain">
+    </div>
+
+    <!-- Modal de Música -->
+    <div id="audio-modal" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
+        <div class="bg-[#2c246b] p-8 rounded-2xl shadow-lg text-center max-w-sm mx-auto">
+            <h3 class="font-dancing text-3xl text-amber-400 mb-4">Música de Fundo</h3>
+            <p class="text-amber-100 mb-6">Gostaria de tocar a nossa música para embalar este momento?</p>
+            <div class="flex justify-center gap-4">
+                <button id="play-audio-btn" class="bg-amber-500 text-gray-900 font-bold py-2 px-6 rounded-full hover:bg-amber-400 transition-all">Sim</button>
+                <button id="no-audio-btn" class="bg-gray-600 text-white font-bold py-2 px-6 rounded-full hover:bg-gray-500 transition-all">Não</button>
+            </div>
+        </div>
     </div>
 
     <footer class="text-center py-12 px-4">
         <div class="inline-block mb-4">
-            <!-- Caminho original do ícone restaurado -->
             <img src="backgraund/Gemini_Generated_Image_mstqrxmstqrxmstq.png" class="h-12 w-12" alt="Ícone com as iniciais V & D">
         </div>
         <p class="text-amber-200">Feito com carinho, inspirado na nossa história.</p>
     </footer>
 
+    <!-- Player de áudio escondido -->
+    <audio id="background-audio" loop>
+        <source src="backgraund/Sylvia Salustti, Raphael Rossato - Vejo Enfim a Luz Brilhar (De Enrolados_Vídeo Oficial) - DisneyMusicBRVEVO (720p, h264).mp4" type="video/mp4">
+    </audio>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
+            // --- Lógica para o Modal de Áudio ---
+            const audioModal = document.getElementById('audio-modal');
+            const playAudioBtn = document.getElementById('play-audio-btn');
+            const noAudioBtn = document.getElementById('no-audio-btn');
+            const backgroundAudio = document.getElementById('background-audio');
+
+            playAudioBtn.addEventListener('click', () => {
+                backgroundAudio.play();
+                audioModal.classList.add('hidden');
+            });
+
+            noAudioBtn.addEventListener('click', () => {
+                audioModal.classList.add('hidden');
+            });
 
             // --- Lógica para revelar a surpresa ---
             const revealButton = document.getElementById('reveal-button');
